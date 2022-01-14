@@ -18,12 +18,6 @@ int main(){
             break;
         }
     }
-    if (ans){
-        cout << ans;
-    }
-    else{
-        cout << "0";
-    }
-    
+    cout << ans;
     return 0;
 }
