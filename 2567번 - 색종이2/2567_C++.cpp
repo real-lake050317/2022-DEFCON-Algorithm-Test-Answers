@@ -1,34 +1,36 @@
 #include <iostream>
 using namespace std;
 
-int board[101][101] = {0, };
-int dx[4] = {1, 0, -1, 0};
-int dy[4] = {0, 1, 0, -1};
-int T, x, y;
-int cnt = 0;
+int board[101][101] = {0, }; //101X101 크기의 2차원 배열을 선언, 전체를 0으로 초기화. 
+int dx[4] = {1, 0, -1, 0}; // x축 방향으로 움직이기 위한 배열 선언, line 26에서 사용. 
+int dy[4] = {0, 1, 0, -1}; // y축 방향으로 움직이기 위한 배열 선언, line 26에서 사용. 
+int T, x, y; //빈 변수 T, x, y를 선언 
+int cnt = 0; //cnt 변수를 선언, 0을 대입 
 
 int main(){
-	cin >> T;
-	for (int i = 0; i<T; i++){
-		cin >> x >> y;
-		for (int j = x; j<x+10; j++){
+	cin >> T; //빈 변수 T에 입력을 받음 
+	for (int i = 0; i<T; i++){ //문제에서 주어지는 데이터 수 T 만큼 입력을 받음. 
+		cin >> x >> y; //x, y에 문제에서 주어지는 케이스 입력 
+		for (int j = x; j<x+10; j++){ //주어진 x, y를 기준으로 오른쪽으로 10칸, 위쪽으로 10칸을 훑음 
 			for (int k = y; k<y+10; k++){
-				board[j][k] = 1;
+				board[j][k] = 1; //훑은 칸들은 초기값 0에서 1로 값을 변경. 단, 이미 방문한 칸이면 그대로 1 유지 
 			}
 		}
 	}
-	for (int i = 0; i<100; i++){
+	for (int i = 0; i<100; i++){ //전체 보드 100X100 훑기
 		for (int j = 0; j<100; j++){
-			if (board[i][j] == 1){
-				for (int k = 0; k<4; k++){
-					int movex = dx[k];
+			if (board[i][j] == 1){//만약 보드 한 칸의 값이 1이면, line 16에서 방문하였다는 뜻이므로 -> 색종이가 붙어있다는 뜻 
+				for (int k = 0; k<4; k++){//만약 채워진 칸을 발견했다면, 인접한 칸들이 비어있을 경우, 둘레로 셀 수 있음. 
+					int movex = dx[k];//따라서 line 5,6 에서 선언한 대로 찾은 채워진 칸에서 위로1칸, 아래로 1칸, 좌로 1칸, 우로 1칸 움직여 봄. 
 					int movey = dy[k];
-					if (board[i + movex][j + movey] == 0){
-						cnt++;
+					if (board[i + movex][j + movey] == 0){ //만약, 인접한 칸들의 값이 0이면, 비어있다는 뜻이므로, 둘레로 포함할 수 있음. 
+						cnt++; //그러한 경우, cnt 변수에 1을 더함. 
 					}
 				}
 			}
 		}
 	}
-	cout << cnt;
+	cout << cnt; //반복문이 모두 끝나면, 최종 cnt값 출력
+	
+	return 0; //0 반환과 함께 코드 종료. 
 }
