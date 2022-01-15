@@ -22,4 +22,4 @@
   
 Copyright &copy; 2022 Jinho Kim, All rights reserved
   
-<img src="./code.gif " align="center" style="width: 100%; height:100% " />
+<img src="src/code.gif " align="center" style="width: 100%; height:100% " />
