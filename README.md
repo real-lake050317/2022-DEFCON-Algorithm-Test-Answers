@@ -19,6 +19,8 @@
 참고사항: 2567번 - 색종이 2 문제의 경우, C++, Python, Java, Golang 외의 언어로 작성하였을때 코드가 과도하게 길어지거나 가독성이 매우 떨어지기에, 4개의 언어로만 답안지를 작성하였음을 알립니다.
   
 <br>
+
+All codes written by Jinho Kim.
   
 Copyright &copy; 2022 Jinho Kim, All rights reserved
   
