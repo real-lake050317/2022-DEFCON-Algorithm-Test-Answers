@@ -1,23 +1,20 @@
 #include <iostream>
+using namespace std;
 
-int n, sum;
-int ans = 0;
+int N, cnt = 0;
 
-int main(){
-    std::cin >> n;
-    for (int i = 0; i<n; i++){
-        sum = i;
-        int num = i;
-        for (int j = 0; j<7; j++){
-            sum += num%10;
-            num /= 10;
-        }
-        if (sum == n){
-            ans = i;
-            break;
-        }
-    }
-    std::cout << ans;
-    
-    return 0;
+int main(){	
+	cin >> N;
+	for (int i = 0; i<N; i++){
+		int ans = i, num = i;
+		while (ans){
+			num += ans%10;
+			ans /= 10;
+		}
+		if (num == N){
+			cout << i;
+			return 0;
+		}
+ 	}
+ 	cout << "0";
 }
